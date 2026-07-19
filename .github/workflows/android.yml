@@ -34,6 +34,6 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: app/build/outputs/apk/lite/release/app-lite-release-unsigned.apk
+          files: app/build/outputs/apk/lite/release/app-lite-release.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
