@@ -406,6 +406,20 @@ class MainActivity : BaseActivity(),
 
         Log.d(TAG, "LAMPA onLoadFinished $url")
 
+        // Auto-inject custom plugin on every load
+        browser?.evaluateJavascript(
+            """
+            (function() {
+                if (!document.querySelector('script[data-custom-plugin]')) {
+                    var s = document.createElement('script');
+                    s.src = 'https://192.168.10.10/init.js';
+                    s.setAttribute('data-custom-plugin', 'true');
+                    document.body.appendChild(s);
+                }
+            })();
+            """.trimIndent(), null
+        )
+
         lifecycleScope.launch {
             syncLanguage()
         }
