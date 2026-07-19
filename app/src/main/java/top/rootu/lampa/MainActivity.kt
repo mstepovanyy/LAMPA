@@ -417,8 +417,8 @@ class MainActivity : BaseActivity(),
                     document.body.appendChild(s);
                 }
             })();
-            """.trimIndent(), null
-        )
+            """.trimIndent()
+        ) { }
 
         lifecycleScope.launch {
             syncLanguage()
